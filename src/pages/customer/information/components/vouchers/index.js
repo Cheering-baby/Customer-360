@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import styles from './index.less';
-
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Index extends Component {
   render() {
