@@ -1,95 +1,112 @@
+@light-blue: rgb(24, 144, 255);
+
 .container {
+  color: #fff;
+  background-color: #3e485c;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  :global {
+    .ant-progress-inner {
+      background-color: hsla(0, 0%, 100%, 0.2);
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .favorite {
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .more {
+      cursor: pointer;
+      font-size: 20px;
+      letter-spacing: 1px;
+      height: 20px;
+      line-height: 0.5;
+    }
+
+    .more:hover {
+      animation: changeLightBlue 0.3s ease-in-out 0s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .photoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    .photo {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 92px;
+      background: #4e6086;
+      color: #fff;
+      font-size: 30px;
+    }
+  }
+
+  .progressContainer {
+    padding-right: 5px;
+    font-size: 12px;
+    .progess {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .text {
+      font-size: 10px;
+    }
+  }
+
+  .nameContianer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+    border-bottom: 1px solid #787f8d;
+    padding-bottom: 20px;
+    .en {
+      display: flex;
+      align-items: center;
+      .sex {
+        margin-left: 6px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .basicInfo {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #787f8d;
+    .basicItem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3px;
+      .icon {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@keyframes changeLightBlue {
+  from {
     color: #fff;
-    background-color: #3e485c;
-    padding: 8px 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+  }
 
-    :global {
-        .ant-progress-inner {
-            background-color: hsla(0,0%,100%,.2);
-        }
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .favorite {
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .more {
-            cursor: pointer;
-            font-size: 20px;
-            letter-spacing: 1px;
-            height: 20px;
-            line-height: 0.5;
-        }
-    }
-
-    .photoContainer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin:10px 0;
-        .photo {
-            width: 92px;
-            height: 92px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 92px;
-            background: #4e6086;
-            color: #fff;
-            font-size: 30px;
-        }
-    }
-
-    .progressContainer {
-        padding-right:5px;
-        font-size:12px;
-        .progess {
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-        }
-        .text {
-            font-size:10px;
-        }
-    }
-
-    .nameContianer {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        font-size:16px;
-        border-bottom: 1px solid #787f8d;
-        padding-bottom:20px;
-        .en {
-            display: flex;
-            align-items: center;
-            .sex {
-                margin-left:6px;
-                font-size:20px;
-            }
-        }
-    }
-
-    .basicInfo {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        margin-top:20px;
-        padding-bottom:20px;
-        border-bottom: 1px solid #787f8d;
-        .basicItem {
-            display: flex;
-            align-items: center;
-            margin-bottom:3px;
-            .icon {
-                margin-right:10px;
-            }
-        }
-    }
+  to {
+    color: @light-blue;
+  }
 }

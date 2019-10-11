@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Progress, Tooltip, Spin } from 'antd';
-import { abbreviateName, getQueryVariable } from '@/utils/utils';
+import { abbreviateName } from '@/utils/utils';
 import styles from './index.less';
 
 @connect(({ customerInfo, loading }) => ({
@@ -11,8 +11,7 @@ import styles from './index.less';
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Index extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
-    const customerId = getQueryVariable('customerId');
+    const { dispatch, customerId } = this.props;
     dispatch({
       type: 'customerInfo/getCustomerDetail',
       payload: {
@@ -201,11 +200,7 @@ export default class Index extends Component {
           <div className={styles.basicInfo}>
             <div className={styles.basicItem}>
               <div className={styles.icon}>
-                <Tooltip
-                  title="RM Code"
-                  placement="top"
-                  overlayStyle={{ fontSize: '12px' }}
-                >
+                <Tooltip title="RM Code" placement="top" overlayStyle={{ fontSize: '12px' }}>
                   <svg className="icon" aria-hidden="true">
                     <use xlinkHref="#icontouxiang"></use>
                   </svg>
@@ -215,7 +210,11 @@ export default class Index extends Component {
             </div>
             <div className={styles.basicItem}>
               <div className={styles.icon}>
-                <Tooltip title="Current / Last Gaming Terminal" placement="top" overlayStyle={{ fontSize: '12px' }}>
+                <Tooltip
+                  title="Current / Last Gaming Terminal"
+                  placement="top"
+                  overlayStyle={{ fontSize: '12px' }}
+                >
                   <svg className="icon" aria-hidden="true">
                     <use xlinkHref="#iconplace"></use>
                   </svg>
@@ -225,7 +224,11 @@ export default class Index extends Component {
             </div>
             <div className={styles.basicItem}>
               <div className={styles.icon}>
-                <Tooltip title="Current Hotel Stay" placement="top" overlayStyle={{ fontSize: '12px' }}>
+                <Tooltip
+                  title="Current Hotel Stay"
+                  placement="top"
+                  overlayStyle={{ fontSize: '12px' }}
+                >
                   <svg className="icon" aria-hidden="true">
                     <use xlinkHref="#iconbed"></use>
                   </svg>
