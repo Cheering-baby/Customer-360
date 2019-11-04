@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Row, Col, Progress, Tooltip, Spin } from 'antd';
+import { Row, Col, Progress, Tooltip, Spin, Modal } from 'antd';
 import { abbreviateName } from '@/utils/utils';
 import styles from './index.less';
 
@@ -10,6 +10,13 @@ import styles from './index.less';
 }))
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMore: false,
+    };
+  }
+
   componentDidMount() {
     const { dispatch, customerId } = this.props;
     dispatch({
@@ -20,11 +27,19 @@ export default class Index extends Component {
     });
   }
 
+  showMore = () => {
+    const { showMore } = this.state;
+    this.setState({
+      showMore: !showMore,
+    });
+  };
+
   render() {
     const {
       customerInfo: { customerInfoDetail = {} },
       getCustomerDetailLoading,
     } = this.props;
+    const { showMore } = this.state;
     const {
       customerName,
       chineseName,
@@ -52,7 +67,9 @@ export default class Index extends Component {
                 <use xlinkHref="#iconxingxing"></use>
               </svg>
             </div>
-            <div className={styles.more}>...</div>
+            <div className={styles.more} onClick={this.showMore}>
+              <Tooltip title="View More Profile">...</Tooltip>
+            </div>
           </div>
           <div className={styles.photoContainer}>
             <div className={styles.photo}>{abbreviateName(customerName)}</div>
@@ -238,6 +255,48 @@ export default class Index extends Component {
             </div>
           </div>
         </div>
+        <Modal
+          title="More Profile"
+          visible={showMore}
+          onOk={this.showMore}
+          onCancel={this.showMore}
+          footer={null}
+          width="72%"
+        >
+        <div>
+          <div className={styles.showMoreItem}>
+            <div className={styles.itemTitle}>
+              MORE INFORMATION
+            </div>
+            <div className={styles.itemContent}>
+              <Row>
+                <Col span={12} className={styles.labelItem}>
+                  <Col span={12} className={styles.label}>Age</Col>
+                  <Col span={12}>34</Col>
+                </Col>
+                <Col span={12} className={styles.labelItem}>
+                  <Col span={12} className={styles.label}>Race</Col>
+                  <Col span={12}>Chinese</Col>
+                </Col>
+                <Col span={12} className={styles.labelItem}>
+                  <Col span={12} className={styles.label}>Marital Status</Col>
+                  <Col span={12}>Single</Col>
+                </Col>
+              </Row>
+            </div>
+          </div>
+          <div className={styles.showMoreItem}>
+            <div className={styles.itemTitle}>
+              CONTACTS
+            </div>
+          </div>
+          <div className={styles.showMoreItem}>
+            <div className={styles.itemTitle}>
+              ASSOCIATES
+            </div>
+          </div>
+        </div>
+        </Modal>
       </Spin>
     );
   }

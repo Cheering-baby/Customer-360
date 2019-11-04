@@ -16,6 +16,7 @@ import logo from '@/assets/image/logo-highlight.png';
 /**
  * use Authorized check all menu item
  */
+
 const menuDataRender = menuList =>
   menuList.map(item => {
     const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };

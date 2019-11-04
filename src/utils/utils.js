@@ -96,3 +96,10 @@ export function getQueryVariable(variable) {
   }
   return false;
 }
+
+export function thousands(num = '') {
+  const str = num.toString();
+  // eslint-disable-next-line no-shadow
+  const reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
+  return str.replace(reg, '$1,');
+}

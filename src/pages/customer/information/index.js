@@ -7,6 +7,8 @@ import styles from './index.less';
 import CustomerInfo from './components/customerInfo';
 import Card from './components/cardCustomerInfo';
 import Vouchers from './components/vouchers';
+import Spending from './components/spending';
+import Hotel from './components/hotel'
 // eslint-disable-next-line react/prefer-stateless-function
 @connect(({ customerInfo }) => ({
   customerInfo,
@@ -26,7 +28,7 @@ export default class Index extends Component {
               <Link to="/customer">Customer 360</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <a href="">{customerName}</a>
+              <span>{customerName}</span>
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
@@ -39,6 +41,16 @@ export default class Index extends Component {
             <Row style={{ marginBottom: '14px' }}>
               <Col span={24}>
                 <Vouchers customerId={customerId} />
+              </Col>
+            </Row>
+            <Row style={{ marginBottom: '14px' }}>
+              <Col span={24}>
+                  {/* <Spending /> */}
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                  <Hotel customerId={customerId} />
               </Col>
             </Row>
           </Col>

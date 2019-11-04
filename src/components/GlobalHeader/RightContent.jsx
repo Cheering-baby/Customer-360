@@ -6,6 +6,7 @@ import Avatar from './AvatarDropdown';
 import HeaderSearch from '../HeaderSearch';
 import SelectLang from '../SelectLang';
 import styles from './index.less';
+import SettingDrawer from '@/components/SettingDrawer/themeColorClient';
 
 const GlobalHeaderRight = props => {
   const { theme, layout } = props;
@@ -17,6 +18,7 @@ const GlobalHeaderRight = props => {
 
   return (
     <div className={className}>
+      {/* <SettingDrawer /> */}
       <HeaderSearch
         className={`${styles.action} ${styles.search}`}
         placeholder={formatMessage({

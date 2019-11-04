@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Spin } from 'antd';
+import { Spin, Tooltip } from 'antd';
+import { thousands } from '@/utils/utils';
 import styles from './index.less';
 import Hai from '@/assets/image/hai.jpg';
 
-@connect(({ loading }) => ({
+@connect(({ customerCardInfo, loading }) => ({
+  customerCardInfo,
   getCustomerCardDetailLoading: loading.effects['customerCardInfo/getCustomerCardDetail'],
 }))
 // eslint-disable-next-line react/prefer-stateless-function
@@ -22,7 +24,6 @@ export default class Card1 extends Component {
     const conditionIcon = document.getElementById('conditionIcon');
     if (hideIconState) {
       conditionIcon.className = `${styles.rotateIconFocus}`;
-      //   console.log(this.gdIconRef);
       this.setState({
         hideIconState: false,
       });
@@ -35,24 +36,29 @@ export default class Card1 extends Component {
   };
 
   render() {
-    const { getCustomerCardDetailLoading } = this.props;
-
+    const {
+      getCustomerCardDetailLoading,
+      customerCardInfo: { grInfo = {} },
+    } = this.props;
+    const { gdBal, gdExpirAmtCurMonth, gdExpirAmtNextMonth, grMembClass, gpBal } = grInfo;
+    const { hideIconState } = this.state;
+    const bgColor = 'rgb(206, 65, 71)';
     return (
       <Spin spinning={getCustomerCardDetailLoading}>
-        <div className={styles.contianer} style={{ backgroundColor: 'rgb(206, 65, 71)' }}>
+        <div className={styles.contianer} style={{ backgroundColor: bgColor }}>
           <div className={styles.title}>
             <div>30030006858</div>
             <div>K60S</div>
           </div>
           <div className={styles.content}>
             <div className={styles.left}>
-              <div className={styles.item1}>
-                <div className={styles.num}>0.00</div>
+              <div className={styles.item1} style={{ borderRight: '1px solid #fff' }}>
+                <div className={styles.num}>{thousands(gdExpirAmtCurMonth)}</div>
                 <div className={styles.gd}>GD</div>
               </div>
               <div className={styles.item2}>
-                <div className={styles.num}>9.00</div>
-                <div className={styles.gd}>GD</div>
+                <div className={styles.num}>{thousands(gpBal)}</div>
+                <div className={styles.gd}>GP</div>
               </div>
             </div>
             <div>
@@ -60,20 +66,22 @@ export default class Card1 extends Component {
             </div>
           </div>
           <div className={styles.footer}>
-            <div>CLASSIC</div>
+            <div>{grMembClass}</div>
             <div className={styles.icon}>
-              <svg
-                className="icon"
-                aria-hidden="true"
-                style={{ marginRight: '5px', cursor: 'pointer' }}
-              >
-                <use xlinkHref="#iconmeiyuan9"></use>
-              </svg>
+              <Tooltip title="Member Monetary">
+                <svg
+                  className="icon"
+                  aria-hidden="true"
+                  style={{ marginRight: '5px', cursor: 'pointer', userSelect: 'none' }}
+                >
+                  <use xlinkHref="#iconmeiyuan9"></use>
+                </svg>
+              </Tooltip>
               <span id="conditionIcon" onClick={this.changeIconState}>
                 <svg
                   className="icon"
                   aria-hidden="true"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', userSelect: 'none' }}
                   ref={this.gdIconRef}
                 >
                   <use xlinkHref="#iconxiala-yuan"></use>
@@ -81,6 +89,22 @@ export default class Card1 extends Component {
               </span>
             </div>
           </div>
+          {hideIconState ? null : (
+            <div className={styles.gdContent} style={{ backgroundColor: bgColor }}>
+              <div className={styles.item}>
+                <div>GD Expiry (Current Month)</div>
+                <div>{gdExpirAmtCurMonth ? thousands(gdExpirAmtCurMonth) : '-'}</div>
+              </div>
+              <div className={styles.item}>
+                <div>GD Expiry (Next Month)</div>
+                <div>{gdExpirAmtNextMonth ? thousands(gdExpirAmtNextMonth) : '-'}</div>
+              </div>
+              <div className={styles.item}>
+                <div>Rebates GD Forecast</div>
+                <div>{gdBal ? thousands(gdBal) : '-'}</div>
+              </div>
+            </div>
+          )}
         </div>
       </Spin>
     );
