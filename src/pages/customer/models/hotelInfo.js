@@ -14,7 +14,6 @@ export default {
       const { resultCode, result, resultMsg } = response;
       if (resultCode === '0') {
         const { hotelLogInfos = [] } = result;
-        console.log(result)
         yield put({
           type: 'save',
           payload: {

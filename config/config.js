@@ -116,16 +116,34 @@ export default {
             },
             {
               path: '/customer',
-              name: 'customer', 
+              name: 'customer',
               icon: 'user',
               component: './customer',
+            },
+            {
+              path: '/eService',
+              name: 'eService',
+              icon: 'customer-service',
+              routes: [
+                {
+                  name: 'Call Center',
+                  path: '/eService/callCenter',
+                  routes: [
+                    {
+                      name: 'Booking',
+                      path: '/eService/callCenter/booking',
+                      component: './eService/callCenter/booking',
+                    },
+                  ],
+                },
+              ],
             },
             {
               path: '/customer/information',
               name: 'information',
               icon: 'smile',
               component: './customer/information/index.js',
-              hideInMenu: true
+              hideInMenu: true,
             },
             {
               component: './404',
@@ -143,7 +161,7 @@ export default {
     {
       path: '/customer',
       name: 'customer',
-      component: './customer/index.js',     
+      component: './customer/index.js',
       routes: [
         {
           name: 'information',
@@ -151,7 +169,7 @@ export default {
           component: './customer/information',
         },
       ],
-    }
+    },
   ],
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {

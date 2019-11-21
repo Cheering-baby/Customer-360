@@ -49,4 +49,7 @@ export default {
   'menu.editor.koni': 'Koni Editor',
   'menu.customer': 'Customer',
   'menu.information': 'Customer Information',
+  'menu.eService': 'E-Service',
+  'menu.eService.Call Center': 'Call Center',
+  'menu.eService.Call Center.Booking': 'Booking',
 };

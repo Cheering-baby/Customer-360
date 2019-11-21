@@ -10,7 +10,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: '',
+  title: 'CXM',
   pwa: false,
   iconfontUrl: '',
 };
