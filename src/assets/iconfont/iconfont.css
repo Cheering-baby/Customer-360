@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'iconfont'; /* project id 1178371 */
-  src: url('//at.alicdn.com/t/font_1178371_2639623uo3a.eot');
-  src: url('//at.alicdn.com/t/font_1178371_2639623uo3a.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1178371_2639623uo3a.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1178371_2639623uo3a.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1178371_2639623uo3a.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1178371_2639623uo3a.svg#iconfont') format('svg');
+  font-family: 'iconfont';
+  src: url('../fonts/iconfont.eot'); /* IE9*/
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/iconfont.woff') format('woff'),
+    url('../fonts/iconfont.ttf') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('../fonts/iconfont.svg#iconfont')
+      format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
