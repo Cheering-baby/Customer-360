@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Col, Row } from 'antd';
 import Title from './components/Title';
 import Search from './components/Search';
-import SearchResult from './components/SearchResult'
-import styles from './index.less';
+import SearchResult from './components/SearchResult';
+import styles from './index.less'; // eslint-disable-next-line react/prefer-stateless-function
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Index extends Component {

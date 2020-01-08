@@ -1,5 +1,5 @@
 export default {
-  namespace: 'eServiceBooking',
+  namespace: 'eServiceBookingMgr',
 
   state: {},
 

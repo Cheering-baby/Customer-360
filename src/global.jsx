@@ -1,9 +1,11 @@
 import { Button, message, notification } from 'antd';
 import React from 'react';
 import { formatMessage } from 'umi-plugin-react/locale';
+import moment from 'moment';
 import defaultSettings from '../config/defaultSettings';
 const { pwa } = defaultSettings; // if pwa is true
 
+moment.locale('en');
 if (pwa) {
   // Notify user if offline now
   window.addEventListener('sw.offline', () => {

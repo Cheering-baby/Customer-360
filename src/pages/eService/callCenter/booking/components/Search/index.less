@@ -1,13 +1,20 @@
+@import '../../../../../../theme/screen.less';
+@media screen and(min-width: @screenLg) {
+  .container {
+    min-height: 550px;
+  }
+}
 .container {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   padding: 10px;
+  margin-bottom: 10px;
 
   .offerType {
     margin-bottom: 20px;
 
     .offerTypeText {
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
   }
 
@@ -20,7 +27,61 @@
 }
 
 .hotelFilterContainer {
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-checkbox-group {
+      display: inline;
+    }
+  }
+  .hotelImgContainer {
+    display: inline-block;
+    height: 31px;
+    width: 31px;
+    .img {
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+    }
+  }
   .label {
     margin-bottom: 10px;
+  }
+  .priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .gap {
+      margin: 0 5px;
+      color: #171b21;
+    }
+  }
+}
+
+.radioStyle {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  color: #171b21;
+}
+
+.formControl {
+  width: calc(100% + 20px);
+  border-top: 1px solid #e9e9e9;
+  padding: 10px 10px 0 0;
+  text-align: right;
+  margin: 30px 0 0 -10px;
+}
+
+.attractionFilterContainer {
+  :global {
+    .ant-checkbox-wrapper {
+      display: block;
+      margin-bottom: 4px;
+      color: #3b414a;
+    }
+    .ant-form-item {
+      margin-bottom: 0;
+    }
   }
 }

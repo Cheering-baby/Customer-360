@@ -1,9 +1,93 @@
+@import '../../../../../../theme/screen.less';
+@media screen and(min-width: @screenLg) {
+  .container {
+    min-height: 550px;
+  }
+}
 .container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
 
+.orderBtn {
+  position: absolute;
+  right: 0;
+  top: -40px;
+}
+
+.productListTitle {
+  color: #171b21;
+  font-weight: 600;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.norecordImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.norecordText {
+  color: #858585;
+  text-align: center;
 }
 
 .calendarContainer {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-    padding-top:10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.changeDate {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+  margin: -15px 0 0 0;
+  .change {
+    width: calc(100% / 7 - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    .text {
+      color: rgb(52, 132, 245);
+      font-weight: 600;
+    }
+  }
+}
+
+.tabContainer {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  padding: 0 20px 10px 20px;
+}
+
+.tableOperation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchTitle {
+  border: 0;
+  margin-top: 10px;
+  border-bottom: 1px solid #eee;
+  overflow: auto;
+
+  :global {
+    .ant-table-title {
+      padding: 10px 0 !important;
+    }
+
+    th div {
+      font-family: calibriBold;
+    }
+  }
 }

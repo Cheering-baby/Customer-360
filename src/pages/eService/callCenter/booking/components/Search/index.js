@@ -6,13 +6,12 @@ import HotelFilter from './HotelFilter';
 import styles from './index.less';
 
 const { Option } = Select;
-@connect(({ eServiceBooking }) => ({ offerType: eServiceBooking.offerType }))
-// eslint-disable-next-line react/prefer-stateless-function
+@connect(({ eServiceBookingMgr }) => ({ offerType: eServiceBookingMgr.offerType }))
 export default class Index extends Component {
   changeOfferType = value => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'eServiceBooking/save',
+      type: 'eServiceBookingMgr/save',
       payload: {
         offerType: value,
       },
@@ -34,6 +33,8 @@ export default class Index extends Component {
             >
               <Option value="Hotel">Hotel</Option>
               <Option value="Attraction">Attraction</Option>
+              <Option value="Package">Package</Option>
+              <Option value="Event">Event</Option>
             </Select>
           </div>
         </div>

@@ -19,7 +19,7 @@ const plugins = [
         // default false
         enable: true,
         // default zh-CN
-        default: 'zh-CN',
+        default: 'en-US',
         // default true, when it is true, will use `navigator.language` overwrite default
         baseNavigator: true,
       },
@@ -76,6 +76,7 @@ export default {
     // defaultGitUrl: 'https://gitee.com/ant-design/pro-blocks',
     defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
+  history: 'hash',
   hash: true,
   targets: {
     ie: 11,
@@ -98,6 +99,7 @@ export default {
     {
       path: '/',
       component: '../layouts/SecurityLayout',
+      authority: ['admin', 'user'],
       routes: [
         {
           path: '/',
@@ -162,6 +164,7 @@ export default {
       path: '/customer',
       name: 'customer',
       component: './customer/index.js',
+      authority: ['admin', 'user'],
       routes: [
         {
           name: 'information',

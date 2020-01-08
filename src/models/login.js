@@ -3,6 +3,7 @@ import { stringify } from 'querystring';
 import { fakeAccountLogin, getFakeCaptcha } from '@/services/login';
 import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
+
 const Model = {
   namespace: 'login',
   state: {
@@ -10,7 +11,8 @@ const Model = {
   },
   effects: {
     *login({ payload }, { call, put }) {
-      const response = yield call(fakeAccountLogin, payload);
+      // const response = yield call(fakeAccountLogin, payload);
+      const response = { status: 'ok', type: 'account', currentAuthority: 'admin' };
       yield put({
         type: 'changeLoginStatus',
         payload: response,

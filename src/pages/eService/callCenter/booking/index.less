@@ -1,7 +1,15 @@
+@import '../../../../theme/screen.less';
 .title {
   margin-bottom: 10px;
 }
 
 .result {
-  padding-left:20px;
+  position: relative;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: @screenMdMax) {
+  .result {
+    padding-left: 0px;
+  }
 }

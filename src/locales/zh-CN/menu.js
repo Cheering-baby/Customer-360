@@ -47,4 +47,9 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+  'menu.customer': 'Customer',
+  'menu.information': 'Customer Information',
+  'menu.eService': 'E-Service',
+  'menu.eService.Call Center': 'Call Center',
+  'menu.eService.Call Center.Booking': 'Booking',
 };
