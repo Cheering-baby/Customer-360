@@ -148,7 +148,16 @@ export default {
               hideInMenu: true,
             },
             {
-              component: './404',
+              name: '查询表格',
+              icon: 'smile',
+              path: '/test/listtablelist',
+              component: './test/ListTableList',
+            },
+            {
+              path: '/test',
+              name: 'test',
+              icon: 'smile',
+              component: './test',
             },
           ],
         },
