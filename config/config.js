@@ -147,12 +147,12 @@ export default {
               component: './customer/information/index.js',
               hideInMenu: true,
             },
-            {
-              name: '查询表格',
-              icon: 'smile',
-              path: '/test/listtablelist',
-              component: './test/ListTableList',
-            },
+            // {
+            //   name: '查询表格',
+            //   icon: 'smile',
+            //   path: '/test/listtablelist',
+            //   component: './test/ListTableList',
+            // },
             {
               path: '/test',
               name: 'test',

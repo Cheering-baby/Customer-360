@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
+import SideMenu from './components/SideMenu';
+import styles from './index.less';
 
-export default class index extends Component {
-  render() {
-    return <div>123234</div>;
-  }
-}
+const typeReflect = {
+  SideMenu: <SideMenu />,
+};
+
+const App = () => {
+  const [type, setType] = useState('SideMenu');
+  return <div className={styles.container}>{typeReflect[type]}</div>;
+};
+
+export default App;

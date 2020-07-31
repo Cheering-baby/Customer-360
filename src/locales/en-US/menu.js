@@ -52,4 +52,5 @@ export default {
   'menu.eService': 'E-Service',
   'menu.eService.Call Center': 'Call Center',
   'menu.eService.Call Center.Booking': 'Booking',
+  'menu.test': 'Test',
 };
