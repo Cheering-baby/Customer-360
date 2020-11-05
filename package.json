@@ -25,7 +25,6 @@
     "test:all": "node ./tests/run-tests.js",
     "test:component": "umi test ./src/components",
     "ui": "umi ui"
-    
   },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
@@ -49,6 +48,7 @@
     "antd": "^3.20.0",
     "axios": "^0.19.0",
     "bizcharts": "^3.5.5",
+    "braft-editor": "^2.3.9",
     "classnames": "^2.2.6",
     "core-js": "^3.4.4",
     "dva": "^2.4.1",

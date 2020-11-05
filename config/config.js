@@ -70,6 +70,7 @@ if (isAntDesignProPreview) {
 }
 
 export default {
+  exportStatic: true,
   plugins,
   block: {
     // 国内用户可以使用码云
