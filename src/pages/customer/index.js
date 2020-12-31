@@ -5,10 +5,13 @@ import { Input, Table } from 'antd';
 import styles from './index.less';
 
 const { Search } = Input;
-@connect(({ searchCustomer, loading }) => ({
-  searchCustomer,
-  getCustomerListLoading: loading.effects['searchCustomer/getCustomerList'],
-}))
+@connect(({ searchCustomer, loading }) => {
+  console.log(loading);
+  return {
+    searchCustomer,
+
+  };
+})
 export default class Index extends Component {
   toDetail = (record = {}) => {
     const { customerId } = record;
@@ -132,13 +135,13 @@ export default class Index extends Component {
               columns={columns}
               dataSource={customerInfo}
               pagination={false}
-              loading={getCustomerListLoading}
+              loading={!!getCustomerListLoading}
               // scroll={{ y: 360 }}
               onRow={record => ({
-                  onClick: event => {
-                    this.toDetail(record, event);
-                  },
-                })}
+                onClick: event => {
+                  this.toDetail(record, event);
+                },
+              })}
             ></Table>
           </div>
         </div>

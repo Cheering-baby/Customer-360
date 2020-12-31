@@ -5,7 +5,7 @@ import axiosWrapper from '@/utils/axiosWrapper';
 // eslint-disable-next-line prefer-destructuring
 const CancelToken = axios.CancelToken;
 const mock =
-  'http://easymock.c85eaf0d05d04465a81befded3f4f608b.cn-shenzhen.alicontainer.com/mock/5cf5d1e19aec4300200d1cfb';
+  'http://dev-easymock.c85eaf0d05d04465a81befded3f4f608b.cn-shenzhen.alicontainer.com/mock/5f2a8b56f8436f0020822edb/cxm';
 const dev = 'http://dev.c85eaf0d05d04465a81befded3f4f608b.cn-shenzhen.alicontainer.com';
 const rwsUrl = process.env.NODE_ENV === 'development' ? mock : window.location.origin;
 
